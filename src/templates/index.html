@@ -12,11 +12,27 @@
     <form action="/" method="post">
         <!-- Render form fields -->
         <div>
-            {{ form.sub_text.label }}
-            {{ form.sub_text }}
+            {{ split_form.hidden_tag() }}
+            {{ split_form.sub_text }}
         </div>
 
         <input type="submit" value="Submit">
     </form>
+    <div>Or upload file</div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        {{ upload_form.hidden_tag() }}<br>
+        {{ upload_form.uploaded_file.label }}<br>
+        {{ upload_form.uploaded_file }}<br>
+        {{ upload_form.submit() }}
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 </body>
 </html>

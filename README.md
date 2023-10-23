@@ -11,3 +11,5 @@ poetry install
 flask run
 ```
 
+Intended for deploying in pythonanywhere
+
