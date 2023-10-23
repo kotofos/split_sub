@@ -19,10 +19,13 @@ def run(text: str) -> str:
 
 
 def process_srt(text: str) -> List[Dialogue]:
+    """
+    Process srt subtitles with special format, when speaker is specified.
     # format:
     # number \n
-    # time a --> b\n
+    # time from --> to\n
     # text lines \n
+    """
 
     dialogues: List[Dialogue] = []
 
